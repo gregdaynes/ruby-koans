@@ -14,7 +14,24 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  [a,b,c].each do |val|
+    raise TriangleError if val <= 0 
+  end
+
+  sides = [a,b,c].sort
+  max = sides.pop
+
+  if sides.inject(:+) <= max
+    raise TriangleError
+  end
+
+  if max == sides[0] & sides[1]
+    :equilateral
+  elsif a == b or a == c or b == c 
+    :isosceles
+  else 
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
