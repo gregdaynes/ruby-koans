@@ -30,8 +30,7 @@ class Proxy
   end
 
   def messages
-    #surely this can be improved
-    return @messages ? @messages : nil
+    @messages
   end
 
   def called?(method_name)
